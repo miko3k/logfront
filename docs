@@ -1,0 +1,19 @@
+== Interactive logger
+
+=== Persistent data
+
+Configuration is stored in java.util.prefs.Preferences, so check usual config place for java application in order
+to edit or remove such configuration (on linux it is $HOME/.java/.userPrefs, on Windows try registry)
+
+==== Preserving configuration between restarts
+
+Logfront is trying to be smart about persisting settings (such as window location and filter settings) across restarts.
+
+To do this it needs to identifiy current application. Current application name is displayed in window title bar.
+It tries a bit but it sometimes fails or yields wrong results. In that case, you can change this behaviour:
+
+Simpliest method which does not introudce any dependency on logfront itself it to add line like this
+before your first message is logged:
+
+  System.setProperty("org.deletehis.logfront.application", "MyApplicationName");
+
