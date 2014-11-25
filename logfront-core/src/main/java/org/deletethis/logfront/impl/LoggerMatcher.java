@@ -28,7 +28,7 @@ public class LoggerMatcher implements Matcher {
     
     @Override
     public void marshallInto(MapCfgValue out, ConfigMarshallerContext s) {
-        out.setMember("name", new ScalarCfgValue(name.getName()));
+        out.setMember("name", new ScalarCfgValue(name.toString()));
         out.setMember("subpackages", new ScalarCfgValue(includeSubpackages));
     }
     
