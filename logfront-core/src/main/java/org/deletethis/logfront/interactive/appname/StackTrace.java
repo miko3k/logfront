@@ -14,7 +14,7 @@ public class StackTrace implements ApplicationNameResolver {
 
             try {
                 Class<?> c = Class.forName(stackTraceElement.getClassName());
-                Class[] argTypes = new Class[]{String[].class};
+                Class<?>[] argTypes = new Class<?>[]{String[].class};
                 //This will throw NoSuchMethodException in case of fake main methods
                 c.getDeclaredMethod("main", argTypes);
 
