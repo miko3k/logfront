@@ -9,7 +9,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 import org.deletethis.logfront.FilterStorage.Slot;
-import org.deletethis.logfront.colors.MatcherStyle;
 import org.deletethis.logfront.impl.LevelMatcher;
 import org.deletethis.logfront.impl.LoggerMatcher;
 import org.deletethis.logfront.impl.ThreadNameMatcher;

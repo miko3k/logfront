@@ -18,22 +18,22 @@ public class FilterEntry extends JComponent {
 
     private static final long serialVersionUID = -2803467228275923198L;
 
-    private FilterEntryStyle style;
+    private final FilterEntryStyle style;
 
-    private String text;
-    private int vgap;
-    private Dimension size;
-    private Icon closeIcon;
-    private int roundRadius;
-    private Font font;
-    private int textY;
+    private final String text;
+    private final int vgap;
+    private final Dimension size;
+    private final Icon closeIcon;
+    private final int roundRadius;
+    private final Font font;
+    private final int textY;
 
-    private int height;
+    private final int height;
 
-    private int textX;
+    private final int textX;
     private int separatorX;
-    private int iconX;
-    private int hgap;
+    private final int iconX;
+    private final int hgap;
 
     private boolean active;
 
@@ -57,7 +57,7 @@ public class FilterEntry extends JComponent {
         }
     }
 
-    private MouseAdapter mouse = new MouseAdapter() {
+    private final MouseAdapter mouse = new MouseAdapter() {
         private void setState(State st) {
             if(st != state) {
                 state = st;
@@ -91,6 +91,7 @@ public class FilterEntry extends JComponent {
             return State.NORMAL;
         }
 
+        @Override
         public void mouseExited(MouseEvent e) {
             State newState;
             switch(state) {
@@ -113,14 +114,17 @@ public class FilterEntry extends JComponent {
             setState(newState);
         }
 
+        @Override
         public void mouseEntered(MouseEvent e) {
             // we'll ignore this one. It could be handled but it's not really useful
         }
 
+        @Override
         public void mouseMoved(MouseEvent e) {
             setState(getStateByLocation(e));
         }
 
+        @Override
         public void mouseDragged(MouseEvent e) {
             State newState = state;
             if((e.getModifiers() & MouseEvent.BUTTON1_MASK) == 0) {
@@ -137,6 +141,7 @@ public class FilterEntry extends JComponent {
             setState(newState);
         }
 
+        @Override
         public void mousePressed(MouseEvent e) {
             if(e.getButton() != MouseEvent.BUTTON1) {
                 return;
@@ -145,6 +150,7 @@ public class FilterEntry extends JComponent {
             setState(isLeft(e) ? State.PRESSED_LEFT : State.PRESSED_RIGHT);
         }
 
+        @Override
         public void mouseReleased(MouseEvent e) {
             if(e.getButton() != MouseEvent.BUTTON1) {
                 return;
